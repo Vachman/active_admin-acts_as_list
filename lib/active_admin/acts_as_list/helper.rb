@@ -18,20 +18,20 @@ module ActiveAdmin
       #    end
       #  end
       def sortable_columns
-        column "&#9650;&#9650;".html_safe do |resource|
+        column "&#9650;&#9650;".html_safe, :class => 'arrow_column' do |resource|
           link_to("&#9650;&#9650;".html_safe, self.send(:"move_to_top_admin_#{resource.class.model_name.underscore.gsub("/", "_")}_path", resource), :class => "arrow") unless resource.first?
         end
-        column "&#9650;".html_safe do |resource|
+        column "&#9650;".html_safe, :class => 'arrow_column' do |resource|
           link_to("&#9650;".html_safe, self.send(:"move_up_admin_#{resource.class.model_name.underscore.gsub("/", "_")}_path", resource), :class => "arrow") unless resource.first?
         end
-        column "&#9660;".html_safe do |resource|
+        column "&#9660;".html_safe, :class => 'arrow_column' do |resource|
           link_to("&#9660;".html_safe, self.send(:"move_down_admin_#{resource.class.model_name.underscore.gsub("/", "_")}_path", resource), :class => "arrow") unless resource.last?
         end
-        column "&#9660;&#9660;".html_safe do |resource|
+        column "&#9660;&#9660;".html_safe, :class => 'arrow_column' do |resource|
           link_to("&#9660;&#9660;".html_safe, self.send(:"move_to_bottom_admin_#{resource.class.model_name.underscore.gsub("/", "_")}_path", resource), :class => "arrow") unless resource.last?
         end
-      end
-      
+      end   
+
       
       # Call this inside your resource definition to add the needed member actions
       # for your sortable resource.
